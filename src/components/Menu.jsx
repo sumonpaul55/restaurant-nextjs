@@ -5,7 +5,7 @@ import Link from 'next/link'
 import CartIcon from './CartIcon'
 function Menu() {
 
-    const [open, setOpen] = useState(false)
+    const [open, setOpen] = useState(true)
     const user = false
     const links = [
         {
