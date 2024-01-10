@@ -37,21 +37,23 @@ function Menu() {
                         <Image src="/close.png" alt="humberger" width={20} height={20} onClick={() => setOpen(!open)} />
                 }
             </div>
-            <div className='bg-orange-600 text-center text-white left-0 absolute top-[86px] justify-center text-xl flex flex-col w-full gap-4 py-4 min-h-[calc(100vh-86px)] z-10'>
-                {
-                    links?.map((link, idx) => (
-                        <Link key={idx} href={link.url} onClick={() => setOpen(!open)}>{link?.title}</Link>
-                    ))
-                }
-                {
-                    !user ? <Link href="/login" onClick={() => setOpen(!open)}>Login</Link> :
-                        <Link href="/orders" onClick={() => setOpen(!open)}>Orders</Link>
-                }
+            {!open &&
+                <div className='bg-orange-600 text-center text-white left-0 absolute top-[86px] justify-center text-xl flex flex-col w-full gap-4 py-4 min-h-[calc(100vh-86px)] z-10'>
+                    {
+                        links?.map((link, idx) => (
+                            <Link key={idx} href={link.url} onClick={() => setOpen(!open)}>{link?.title}</Link>
+                        ))
+                    }
+                    {
+                        !user ? <Link href="/login" onClick={() => setOpen(!open)}>Login</Link> :
+                            <Link href="/orders" onClick={() => setOpen(!open)}>Orders</Link>
+                    }
 
-                <Link href="/cart" onClick={() => setOpen(!open)} >
-                    <CartIcon />
-                </Link>
-            </div>
+                    <Link href="/cart" onClick={() => setOpen(!open)} >
+                        <CartIcon />
+                    </Link>
+                </div>
+            }
         </div>
 
     )
